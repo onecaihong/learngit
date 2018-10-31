@@ -1,0 +1,68 @@
+安装后
+第一步：	$ git config --global user.name "Your Name"
+	$ git config --global user.email "email@example.com"
+建库：	$mkdir 库名
+	$ cd 库名
+	$ pwd---显示当前目录
+	$ git init----把这个目录变成Git可以管理的仓库
+添加文件	$ git add readme.txt -----把文件添加到仓库(缓存区)
+	$ git commit -m "wrote a readme file"-----用命令git commit告诉Git，把文件提交到仓库
+版本回退：$ git log  或者  $ git log --pretty=oneline   查看版本更新情况
+	$ git reset --hard HEAD^    回退到上个版本
+	$ git reset --hard 1094a      回退到指定的某个版本
+	$ git reflog     记录每次的命令
+	$ git status       查看状态
+	$ git reset HEAD readme.txt   把暂存区的修改撤销掉（unstage），重新放回工作区
+	$ git checkout -- readme.txt	丢弃工作区的修改
+删除文件	$ git rm test.txt	从版本库中删除该文件  然后提交
+	$ git checkout -- test.txt   删错了恢复
+推送到远程仓库
+添加远程仓库：    $ git remote add origin git@github.com:michaelliao/learngit.git
+	$ git push -u origin master 	第一次把本地库的所有内容推送到远程库
+	git push origin master 	之后提交
+从远程仓库克隆	 $ git clone git@github.com:michaelliao/gitskills.git   SSH	
+	 $ git clone https://github.com/onecaihong/newgitstore.git   HTTPS
+分支管理：
+	$ git checkout -b dev	创建并切换分支等于$ git branch dev  然后$ git checkout dev
+	$ git branch   查看分支
+	$ git merge dev   把当前分支合并到指定分支
+	$ git branch -d dev	 删除分支
+	$ git merge --no-ff -m "merge with no-ff" dev    表示禁用Fast forward合并分支
+Bug分支 	$ git stash		把当前工作现场“储藏”起来
+	$ git checkout <name>	切换到有bug的分支
+	$ git checkout -b issue-101    创建修复bug的分支
+	$ git merge --no-ff -m "merged bug fix 101" issue-101	修复完提交和分支合并
+	$ git stash list  查看之前工作现场
+	$ git stash apply  恢复但并未删除stash内容
+	$ git stash pop	恢复的同时把stash内容也删了
+多人协作	$ git remote	查看远程库的信息   $ git remote -v  详细的信息
+	$ git push origin master    把该分支上的所有本地提交推送到远程库  <master>本地分支
+	$ git push origin dev   推送其他分支
+	$ git checkout -b dev origin/dev       另个参与者clone远程库后,并创建远程origin的dev分支到本地
+	$ git add env.txt
+	$ git commit -m "add env"
+	$ git push origin dev		另个参与者提交了一些修改到远程库
+	$ git pull             当我也对相同文件做了修改了,再提交会存在冲突,所以先git pull下最新的提交在本地合并解决冲冲突在推送
+Rebase	$ git rebase	rebase操作可以把本地未push的分叉提交历史整理成直线；
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
