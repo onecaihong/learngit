@@ -43,6 +43,7 @@ Bug分支 	$ git stash		把当前工作现场“储藏”起来
 	$ git commit -m "add env"
 	$ git push origin dev		另个参与者提交了一些修改到远程库
 	$ git pull             当我也对相同文件做了修改了,再提交会存在冲突,所以先git pull下最新的提交在本地合并解决冲冲突在推送
+	$ git pull --allow-unrelated-histories       当报错refusing to merge unrelated histories
 Rebase	$ git rebase	rebase操作可以把本地未push的分叉提交历史整理成直线；
 
 
